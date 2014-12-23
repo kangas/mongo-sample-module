@@ -3,9 +3,11 @@ import os
 def configure(conf, env):
     root = os.path.dirname(__file__)
 
+    # If you want to #define something
     env.Append(CPPDEFINES=dict(MONGO_HELLO_VERSION=1))
 
-    # env['MONGO_BUILD_HELLO'] = True
+    # If you want to set an environment variable for the compiler
+    env['MONGO_BUILD_HELLO'] = True
 
     distsrc = env.Dir(root).Dir('distsrc')
     docs = env.Dir(root).Dir('docs')

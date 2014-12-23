@@ -2,10 +2,10 @@
 
 Import("env")
 
-env.Library('mongohello',
-            ['src/hello/hello.cpp',
-             'src/hello/hello_options.cpp'
-             ],
+env.Library(target='mongohello',
+            source=['src/hello/hello.cpp',
+                    'src/hello/hello_options.cpp'
+                    ],
             LIBDEPS_DEPENDENTS=['$BUILD_DIR/mongo/${PROGPREFIX}mongod${PROGSUFFIX}'],
             SYSLIBDEPS=env.get('HELLO_SYSLIBDEPS', []))
 

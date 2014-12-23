@@ -40,7 +40,7 @@ namespace mongo {
     HelloAgent::~HelloAgent() {
     }
 
-    /* virtual */ std::string HelloAgent::name() const {
+    std::string HelloAgent::name() const {
         return "HelloAgent";
     }
 
@@ -71,13 +71,13 @@ namespace mongo {
         Client::initThread("HelloAgent");
     }
 
-    /* static */ void HelloAgent::init() {
+    void HelloAgent::init() {
         helloAgent.go();
     }
 
     MONGO_INITIALIZER(InitializeHello)(InitializerContext* context) {
         // HORRIBLE HACK to start thread later
-        // Threads cannot be started in initalizers
+        // Threads cannot be started in initializers
         snmpInit = &HelloAgent::init;
         return Status::OK();
     }
