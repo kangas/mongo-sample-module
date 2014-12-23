@@ -1,0 +1,6 @@
+sample modules for mongodb 2.8
+
+in mongo repository directory
+   mkdir src/mongo/db/modules/
+   ln -sf ~/mongo-sample-module src/mongo/db/modules/sample
+
